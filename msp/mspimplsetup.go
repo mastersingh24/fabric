@@ -11,7 +11,6 @@ import (
 	"crypto/x509"
 	"crypto/x509/pkix"
 	"fmt"
-	"time"
 
 	"github.com/golang/protobuf/proto"
 	"github.com/hyperledger/fabric/bccsp"
@@ -269,6 +268,7 @@ func (msp *bccspmsp) setupSigningIdentity(conf *m.FabricMSPConfig) error {
 			return err
 		}
 
+		/**
 		expirationTime := sid.ExpiresAt()
 		now := time.Now()
 		if expirationTime.After(now) {
@@ -278,6 +278,7 @@ func (msp *bccspmsp) setupSigningIdentity(conf *m.FabricMSPConfig) error {
 		} else {
 			return errors.Errorf("signing identity expired %v ago", now.Sub(expirationTime))
 		}
+		*/
 
 		msp.signer = sid
 	}
